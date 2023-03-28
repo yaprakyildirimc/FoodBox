@@ -4,7 +4,17 @@ namespace FoodBox.Entity.Entities
 {
     public class Category : EntityBase
     {
-        public String Name { get; set; }
+        public Category()
+        {
+            
+        }
+
+        public Category(string name, string createdBy)
+        {
+            Name = name;
+            CreatedBy = createdBy;
+        }
+        public string Name { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 }

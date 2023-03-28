@@ -22,14 +22,12 @@ namespace FoodBox.Data.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Store> Stores { get; set; }
-        public DbSet<StoreProduct> StoreProducts { get; set; }
-        public DbSet<StoreUser> StoreUsers { get; set; }
 
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            //Assembly 
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        }
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    //Assembly tüm mapping sınıflarını tek tek çağırmak yerine, IEntityTypeConfiguration
+        //    //sınıfından kalıtım alan tüm mapping sınıflarını çağırır
+        //    builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        //}
     }
 }
