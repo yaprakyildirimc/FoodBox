@@ -1,24 +1,27 @@
-﻿using FoodBox.Data.UnitOfWorks;
+﻿using AutoMapper;
+using FoodBox.Data.UnitOfWorks;
+using FoodBox.Entity.DTOs.Products;
 using FoodBox.Entity.Entities;
 using FoodBox.Service.Services.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FoodBox.Service.Services.Concrete
 {
     public class ProductService : IProductService
     {
         private readonly IUnitOfWork unitOfWork;
-        public ProductService(IUnitOfWork unitOfWork)
+        private readonly IMapper mapper;
+
+        public ProductService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
-        public async Task<List<Product>> GetAllProductsAsync()
+        public async Task<List<ProductDto>> GetAllProductsAsync()
         {
-            return await unitOfWork.GetRepository<Product>().GetAllAsync();
+           var products =  await unitOfWork.GetRepository<Product>().GetAllAsync();
+           var map = mapper.Map<List<ProductDto>>(products);
+
+            return map;
         }
     }
 }
