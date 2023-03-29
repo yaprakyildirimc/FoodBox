@@ -1,13 +1,16 @@
 using FoodBox.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using FoodBox.Data.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-var assembly = Assembly.GetExecutingAssembly();
+
+builder.Services.LoadDataLayerExtensions(builder.Configuration);
+
+//var assembly = Assembly.GetExecutingAssembly();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

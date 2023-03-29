@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FoodBox.Data\FoodBox.Data.csproj" />
+    <ProjectReference Include="..\FoodBox.Entity\FoodBox.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
