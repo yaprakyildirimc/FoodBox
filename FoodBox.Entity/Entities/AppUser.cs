@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Globalization;
 
 namespace FoodBox.Entity.Entities
 {
@@ -6,5 +7,10 @@ namespace FoodBox.Entity.Entities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        public Guid StoreId { get; set; }
+        public Store Store { get; set; }
+
+        public ICollection<Product> Products { get; set; }
     }
 }

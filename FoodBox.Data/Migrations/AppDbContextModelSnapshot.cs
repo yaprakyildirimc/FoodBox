@@ -53,21 +53,21 @@ namespace FoodBox.Data.Migrations
                         new
                         {
                             Id = new Guid("a780b1c8-6d4b-452d-9bc4-40f184964380"),
-                            ConcurrencyStamp = "fc3ed9da-16e1-4d6f-a0cc-e0455b2a60ee",
+                            ConcurrencyStamp = "effbcbfb-9c10-46ca-bffc-7156658e1c0c",
                             Name = "Superadmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = new Guid("c457729b-87e5-4d96-9965-eefb8e36a203"),
-                            ConcurrencyStamp = "2710fe03-e58d-431d-a881-7d9294146771",
+                            ConcurrencyStamp = "5fa9b80e-6af4-443e-9d59-9fc36c01b30b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("855b21a0-2a28-4c07-a6f4-6fc5392b30a6"),
-                            ConcurrencyStamp = "be92c055-edef-4c62-9d1c-61a5c63b6643",
+                            ConcurrencyStamp = "40491b97-82fb-41d2-b307-96a826ecb3f4",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -151,6 +151,9 @@ namespace FoodBox.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("StoreId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -168,6 +171,8 @@ namespace FoodBox.Data.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("StoreId");
+
                     b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
@@ -175,7 +180,7 @@ namespace FoodBox.Data.Migrations
                         {
                             Id = new Guid("e6c8d1cd-1b18-473a-b68a-7b3cb247307d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7c00324b-39cc-4bf6-b587-2d8e66edf770",
+                            ConcurrencyStamp = "509edcf0-df09-4594-8c69-2a73963c7455",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Yaprak",
@@ -183,10 +188,11 @@ namespace FoodBox.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECxO/x/TQZmTiDxC/wxcWaUGV6vWCAuk8Tr7oitfCG5FyQ8YnBjChaeB5vwZE1/h+Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA7ZgCzRzmUs7xUXstBOafwX6KmlrVs6Its57e64g9acUHYBuQSTU/Dy80nAecPjnQ==",
                             PhoneNumber = "+905423897485",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "56c83fb4-9512-4d62-ad61-4c4cbd86bfa7",
+                            SecurityStamp = "12dffc79-a454-43a6-9b5b-bcb78146f9c0",
+                            StoreId = new Guid("c9cc4f4e-39ee-46c9-b5a6-fcb2674c71c8"),
                             TwoFactorEnabled = false,
                             UserName = "superadmin@gmail.com"
                         },
@@ -194,7 +200,7 @@ namespace FoodBox.Data.Migrations
                         {
                             Id = new Guid("4f3d95f2-ad3e-4172-9b35-3d80ecfd0624"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f7bf8df4-bd64-41af-a79f-bc464ff26877",
+                            ConcurrencyStamp = "403a20f3-26bb-47e0-bd9c-e52b02ac708b",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -202,10 +208,11 @@ namespace FoodBox.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBDP2CnHBAMq1BN2XNZ31ygcL3B8+UTIaXPcxd7wMYDzOiwoduA6E1sQKeIi2oCOJQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDjdWvxgn5p1JqtTJLbU4sl4PriqDwPwUgggY+z4o0/rfmg3WvUntmw3vdaK6ts7Cg==",
                             PhoneNumber = "+905423891212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7f43761c-943d-48b1-9e19-1549a78effe1",
+                            SecurityStamp = "2ada9c24-a912-4490-9971-11d39ce875c9",
+                            StoreId = new Guid("40888f2b-9891-4fa4-abb2-993e4682fd0b"),
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
@@ -345,7 +352,7 @@ namespace FoodBox.Data.Migrations
                         {
                             Id = new Guid("cf794b4b-ddf3-4dc4-9905-5ad6adfb9cd5"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 3, 30, 9, 7, 26, 856, DateTimeKind.Local).AddTicks(6555),
+                            CreatedDate = new DateTime(2023, 3, 30, 13, 55, 18, 212, DateTimeKind.Local).AddTicks(6349),
                             IsDeleted = false,
                             Name = "Çikolata"
                         },
@@ -353,7 +360,7 @@ namespace FoodBox.Data.Migrations
                         {
                             Id = new Guid("19aa3e6c-b4aa-4e53-998b-dbf0a5750512"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 3, 30, 9, 7, 26, 856, DateTimeKind.Local).AddTicks(6563),
+                            CreatedDate = new DateTime(2023, 3, 30, 13, 55, 18, 212, DateTimeKind.Local).AddTicks(6357),
                             IsDeleted = false,
                             Name = "Gofret"
                         });
@@ -363,6 +370,9 @@ namespace FoodBox.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AppUserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Brand")
@@ -407,7 +417,15 @@ namespace FoodBox.Data.Migrations
                     b.Property<Guid?>("StoreId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("User")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.HasIndex("CategoryId");
 
@@ -418,29 +436,33 @@ namespace FoodBox.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("92b4d394-d337-4490-a991-1be18c55c569"),
+                            Id = new Guid("3bcac82f-8334-4697-ab39-ce8cf1e30500"),
                             Brand = "Ülker",
                             CategoryId = new Guid("cf794b4b-ddf3-4dc4-9905-5ad6adfb9cd5"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 3, 30, 9, 7, 26, 856, DateTimeKind.Local).AddTicks(6928),
+                            CreatedDate = new DateTime(2023, 3, 30, 13, 55, 18, 212, DateTimeKind.Local).AddTicks(6488),
                             IsDeleted = false,
                             ProductCode = 1,
                             ProductName = "Coko",
                             Stock = 90,
-                            StoreId = new Guid("c9cc4f4e-39ee-46c9-b5a6-fcb2674c71c8")
+                            StoreId = new Guid("c9cc4f4e-39ee-46c9-b5a6-fcb2674c71c8"),
+                            User = new Guid("00000000-0000-0000-0000-000000000000"),
+                            UserId = new Guid("e6c8d1cd-1b18-473a-b68a-7b3cb247307d")
                         },
                         new
                         {
-                            Id = new Guid("9f33e0fe-db83-4552-827f-8d3489281cc7"),
+                            Id = new Guid("46d49e0d-b1d8-4106-aba4-0fd2c4f3f4a0"),
                             Brand = "Torku",
                             CategoryId = new Guid("19aa3e6c-b4aa-4e53-998b-dbf0a5750512"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 3, 30, 9, 7, 26, 856, DateTimeKind.Local).AddTicks(6955),
+                            CreatedDate = new DateTime(2023, 3, 30, 13, 55, 18, 212, DateTimeKind.Local).AddTicks(6493),
                             IsDeleted = false,
                             ProductCode = 2,
                             ProductName = "Puskevit",
                             Stock = 80,
-                            StoreId = new Guid("40888f2b-9891-4fa4-abb2-993e4682fd0b")
+                            StoreId = new Guid("40888f2b-9891-4fa4-abb2-993e4682fd0b"),
+                            User = new Guid("00000000-0000-0000-0000-000000000000"),
+                            UserId = new Guid("4f3d95f2-ad3e-4172-9b35-3d80ecfd0624")
                         });
                 });
 
@@ -493,7 +515,7 @@ namespace FoodBox.Data.Migrations
                             Id = new Guid("c9cc4f4e-39ee-46c9-b5a6-fcb2674c71c8"),
                             Address = "Kartal Atalar mah",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 3, 30, 9, 7, 26, 857, DateTimeKind.Local).AddTicks(7832),
+                            CreatedDate = new DateTime(2023, 3, 30, 13, 55, 18, 213, DateTimeKind.Local).AddTicks(440),
                             IsDeleted = false,
                             Phone = 216145,
                             StoreName = "Kartal"
@@ -503,7 +525,7 @@ namespace FoodBox.Data.Migrations
                             Id = new Guid("40888f2b-9891-4fa4-abb2-993e4682fd0b"),
                             Address = "Pendik Dogu mah",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 3, 30, 9, 7, 26, 857, DateTimeKind.Local).AddTicks(7839),
+                            CreatedDate = new DateTime(2023, 3, 30, 13, 55, 18, 213, DateTimeKind.Local).AddTicks(443),
                             IsDeleted = false,
                             Phone = 316145,
                             StoreName = "Pendik"
@@ -517,6 +539,17 @@ namespace FoodBox.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FoodBox.Entity.Entities.AppUser", b =>
+                {
+                    b.HasOne("FoodBox.Entity.Entities.Store", "Store")
+                        .WithMany("AppUsers")
+                        .HasForeignKey("StoreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Store");
                 });
 
             modelBuilder.Entity("FoodBox.Entity.Entities.AppUserClaim", b =>
@@ -563,6 +596,10 @@ namespace FoodBox.Data.Migrations
 
             modelBuilder.Entity("FoodBox.Entity.Entities.Product", b =>
                 {
+                    b.HasOne("FoodBox.Entity.Entities.AppUser", null)
+                        .WithMany("Products")
+                        .HasForeignKey("AppUserId");
+
                     b.HasOne("FoodBox.Entity.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
@@ -578,6 +615,11 @@ namespace FoodBox.Data.Migrations
                     b.Navigation("Store");
                 });
 
+            modelBuilder.Entity("FoodBox.Entity.Entities.AppUser", b =>
+                {
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("FoodBox.Entity.Entities.Category", b =>
                 {
                     b.Navigation("Products");
@@ -585,6 +627,8 @@ namespace FoodBox.Data.Migrations
 
             modelBuilder.Entity("FoodBox.Entity.Entities.Store", b =>
                 {
+                    b.Navigation("AppUsers");
+
                     b.Navigation("Products");
                 });
 #pragma warning restore 612, 618

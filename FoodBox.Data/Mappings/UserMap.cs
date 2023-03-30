@@ -54,7 +54,8 @@ namespace FoodBox.Data.Mappings
                 LastName = "Yildirim",
                 PhoneNumberConfirmed = true,
                 EmailConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString()
+                SecurityStamp = Guid.NewGuid().ToString(),
+                StoreId = Guid.Parse("C9CC4F4E-39EE-46C9-B5A6-FCB2674C71C8"),
             };
             superadmin.PasswordHash = CreatePasswordHash(superadmin, "123456");
 
@@ -70,7 +71,8 @@ namespace FoodBox.Data.Mappings
                 LastName = "User",
                 PhoneNumberConfirmed = false,
                 EmailConfirmed = false,
-                SecurityStamp = Guid.NewGuid().ToString()
+                SecurityStamp = Guid.NewGuid().ToString(),
+                StoreId = Guid.Parse("40888F2B-9891-4FA4-ABB2-993E4682FD0B"),
             };
             admin.PasswordHash = CreatePasswordHash(admin, "123456");
 

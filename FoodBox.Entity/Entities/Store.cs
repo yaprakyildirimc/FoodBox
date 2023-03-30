@@ -21,5 +21,6 @@ namespace FoodBox.Entity.Entities
         public int Phone { get; set; }
 
         public ICollection<Product> Products { get; set; }
+        public ICollection<AppUser> AppUsers { get; set; }
     }
 }

@@ -24,7 +24,8 @@ namespace FoodBox.Data.Mappings
                 StoreId = Guid.Parse("C9CC4F4E-39EE-46C9-B5A6-FCB2674C71C8"),
                 CreatedBy = "Admin Test",
                 CreatedDate = DateTime.Now,
-                IsDeleted = false
+                IsDeleted = false,
+                UserId = Guid.Parse("E6C8D1CD-1B18-473A-B68A-7B3CB247307D")
             },
                 new Product
                 {
@@ -37,7 +38,8 @@ namespace FoodBox.Data.Mappings
                     StoreId = Guid.Parse("40888F2B-9891-4FA4-ABB2-993E4682FD0B"),
                     CreatedBy = "Admin Test",
                     CreatedDate = DateTime.Now,
-                    IsDeleted = false
+                    IsDeleted = false,
+                    UserId = Guid.Parse("4F3D95F2-AD3E-4172-9B35-3D80ECFD0624")
                 }
             );
         }

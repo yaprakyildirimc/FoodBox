@@ -30,5 +30,8 @@ namespace FoodBox.Entity.Entities
 
         public Guid? StoreId { get; set; }
         public Store Store { get; set; }
+
+        public Guid UserId { get; set; }
+        public Guid User { get; set;}
     }
 }
