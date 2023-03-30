@@ -1,16 +1,11 @@
 ﻿using FoodBox.Entity.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FoodBox.Data.Context
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid, AppUserClaim, AppUserRole, AppUserLogin, AppRoleClaim, AppUserToken>
     {
         protected AppDbContext()
         {
@@ -25,6 +20,9 @@ namespace FoodBox.Data.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
+            base.OnModelCreating(builder);
+
             //Assembly tüm mapping sınıflarını tek tek çağırmak yerine, IEntityTypeConfiguration
             //sınıfından kalıtım alan tüm mapping sınıflarını çağırır
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
