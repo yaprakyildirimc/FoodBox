@@ -12,6 +12,8 @@ namespace FoodBox.Service.Extensions
             var assembly = Assembly.GetExecutingAssembly();
 
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IStoreService, StoreService>();
 
             services.AddAutoMapper(assembly);
             return services;

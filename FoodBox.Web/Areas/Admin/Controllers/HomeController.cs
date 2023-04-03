@@ -16,7 +16,7 @@ namespace FoodBox.Web.Areas.Admin.Controllers
         }
         public async Task <IActionResult> Index()
         {
-            var products = await productService.GetAllProductsAsync();
+            var products = await productService.GetAllProductsWithCategoryNonDeletedAsync();
             return View(products);
         }
     }
