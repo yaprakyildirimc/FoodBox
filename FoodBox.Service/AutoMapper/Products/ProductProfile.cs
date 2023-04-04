@@ -10,6 +10,7 @@ namespace FoodBox.Service.AutoMapper.Products
         {
             CreateMap<ProductDto, Product>().ReverseMap();
             CreateMap<ProductUpdateDto, Product>().ReverseMap();
+            CreateMap<ProductUpdateDto, ProductDto>().ReverseMap();
         }
     }
 }
